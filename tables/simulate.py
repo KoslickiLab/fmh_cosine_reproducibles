@@ -1,5 +1,8 @@
 import random
 
+# set random seed
+random.seed(0)
+
 # given N, the total number of elements in the universe, and n, the number of elements in the set,
 # create a random set of n elements from the universe {0, 1, 2, ..., N-1}
 def create_random_set(N, n):
