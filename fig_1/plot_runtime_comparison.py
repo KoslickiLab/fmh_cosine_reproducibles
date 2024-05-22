@@ -12,7 +12,7 @@ mash_color = '#ff7f00'
 frackmc_color = '#99DC97'
 sourmash_color = '#9E4B9B'
 
-df = pd.read_csv("sourmash_frackmc_comparison.csv")
+df = pd.read_csv("runtime_comparison.csv")
 
 # use ggplot style
 #plt.style.use('seaborn-muted')
@@ -56,5 +56,5 @@ ax.legend()
 #plt.show()
 
 # save the plot
-plt.savefig("sourmash_frackmc_comparison.pdf", bbox_inches="tight")
+plt.savefig("runtime_comparison.pdf", bbox_inches="tight")
 #plt.close()

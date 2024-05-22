@@ -24,5 +24,13 @@ python generate_tables.py
 ```
 
 # Figure 1
+1. First obtain the data here: TODO
+1. Then, change fig_1/run_tools.py, where we need to write path to the files
+1. Then, run the following:
+```
+cd fig_1
+python run_tools.py
+python plot_runtime_comparison.py
+```
 
 # Figure 2
