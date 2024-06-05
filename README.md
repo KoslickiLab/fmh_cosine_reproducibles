@@ -24,7 +24,7 @@ python generate_tables.py
 ```
 
 # Figure 1
-1. First obtain the data here: TODO
+1. First obtain the data by following the instruction in fig_1/download.txt
 1. Then, change fig_1/run_tools.py, where we need to write path to the files
 1. Then, run the following:
 ```
@@ -34,3 +34,20 @@ python plot_runtime_comparison.py
 ```
 
 # Figure 2
+1. First we need to obtain the data by following the instruction in fig_2/download.txt
+1. Then, extract the downloaded data in fig_2
+1. For the Ecoli dataset:
+(a) `cd fig_2/ecoli3682`
+(b) `bash run_tools.sh`
+(c) `gunzip simka_results_*/*.gz`
+1. For the HMP dataset:
+(a) `cd fig_2/hmp_gut`
+(b) `bash run_tools.sh`
+(c) `gunzip simka_results_*/*.gz`
+1. Make the comparisons using `python comparison.py`
+1. Copy the files ecoli_combined, ecoli_runtime, hmp_combined, hmp_gut_runtime to fig_2/plotting
+1. Plotting:
+```
+cd fig_2/plotting
+python plot_results.py
+```
