@@ -27,6 +27,8 @@ import subprocess
 import multiprocessing
 import time
 
+from concurrent.futures import ProcessPoolExecutor
+
 from read_fmh_sketch import read_fmh_sig_file
 
 
@@ -111,9 +113,9 @@ def generate_fmh_sketch(file, scale_factor, ksize, output_file, is_fasta, num_co
     # show the command
     print(cmd)
 
-    # run the command and check for errors
+    # run the command and check for errors, make silent
     try:
-        subprocess.run(cmd, shell=True, check=True)
+        subprocess.run(cmd, shell=True, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     except subprocess.CalledProcessError as e:
         raise Exception(f'Error while generating sketch for file {file}: {e}')
 
@@ -242,44 +244,22 @@ def main():
 
 
     sketch_files = []
-    num_processes_to_call_join = 0
-    processes_to_call_join = []
     filename_to_sketch_name = {}
+    is_fasta_list = []
     for file in input_files:
         # sketch filename format: <input_filename>_ksize_scaled_seed.sig
         sketch_filename = f'{file}_{args.ksize}_{args.scale_factor}_{args.seed}.sig'
         sketch_files.append(sketch_filename)
         filename_to_sketch_name[file] = sketch_filename
-
-        # if the user wants to skip sketch creation, continue
-        if args.skip_sketch:
-            continue
-
-        # generate the sketch
         is_fasta = file.endswith('.fa') or file.endswith('.fasta') or file.endswith('.fna')
+        is_fasta_list.append(is_fasta)    
+
+    if not args.skip_sketch:
+        # generate sketches
+        print('Generating sketches')
+        with ProcessPoolExecutor(max_workers=num_processes_in_parallel) as executor:
+            executor.map(generate_fmh_sketch, input_files, [args.scale_factor]*len(input_files), [args.ksize]*len(input_files), sketch_files, is_fasta_list, [cores_each_instance]*len(input_files), [args.seed]*len(input_files), [args.use_abund]*len(input_files))
         
-        #generate_fmh_sketch(file, args.scale_factor, args.ksize, sketch_filename, is_fasta, args.cores, args.seed)
-        # make this call using multiprocessing
-        p = multiprocessing.Process(target=generate_fmh_sketch, args=(file, args.scale_factor, args.ksize, sketch_filename, is_fasta, cores_each_instance, args.seed, args.use_abund))        
-        num_processes_to_call_join += 1
-        processes_to_call_join.append(p)
-
-        if num_processes_to_call_join == num_processes_in_parallel:
-            for p in processes_to_call_join:
-                p.start()
-
-            for p in processes_to_call_join:
-                p.join()
-            num_processes_to_call_join = 0
-            processes_to_call_join = []
-
-    # join the remaining processes
-    for p in processes_to_call_join:
-        p.start()
-
-    for p in processes_to_call_join:
-        p.join()
-
     # check if the user only wants to sketch
     if args.sketch_only:
         print('Done')
@@ -323,11 +303,12 @@ def main():
     # measure time for rest of the code
     start_time = time.time()
 
-    all_sketches = []
-    for i in range(len(input_files)):
-        sketch_name = filename_to_sketch_name[input_files[i]]
-        sigs_and_abundances = read_fmh_sig_file(sketch_name, args.ksize, args.seed, args.scale_factor)
-        all_sketches.append(sigs_and_abundances)
+    with ProcessPoolExecutor(max_workers=num_processes_in_parallel) as executor:
+        all_sketches = list(executor.map(read_fmh_sig_file, sketch_files, [args.ksize]*len(sketch_files), [args.seed]*len(sketch_files), [args.scale_factor]*len(sketch_files)))
+
+    if all_sketches is None:
+        print('Error while reading the sketch files')
+        return
 
     # compute pairwise metrics
     pair_to_metric_dict = {}
