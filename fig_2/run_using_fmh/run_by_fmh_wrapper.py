@@ -181,6 +181,30 @@ def compute_magnitute(sig):
     abundances_list = [abundance for min, abundance in sig]
     return sum([abundance**2 for abundance in abundances_list])**0.5
 
+
+
+def compute_metric_for_a_pair_returns(sig1, sig2, metric):
+    # sig1 and sig2: list of tuples (min, abundance)
+    if metric == 'cosine':
+        # if either of the signatures is empty, return 0.0
+        if len(sig1) == 0 or len(sig2) == 0:
+            return 0.0
+
+        # compute the dot product
+        dot_product = get_dot_product(sig1, sig2)
+        
+        # compute the magnitudes
+        magnitude1 = compute_magnitute(sig1)
+        magnitude2 = compute_magnitute(sig2)
+        
+        # compute the cosine similarity
+        return_value =  dot_product / (magnitude1 * magnitude2)
+        return return_value
+    else:
+        return -1
+
+
+
 def compute_metric_for_a_pair(sig1, sig2, metric, return_list, index):
     # sig1 and sig2: list of tuples (min, abundance)
     if metric == 'cosine':
@@ -313,28 +337,24 @@ def main():
     # compute pairwise metrics
     pair_to_metric_dict = {}
     print('Computing pairwise metrics')
-    process_list = []
-    num_files = len(input_files)
-    num_pairs = num_files * (num_files - 1) // 2
-    return_list = multiprocessing.Manager().list([-1] * num_pairs)
-
-    all_i_j_pairs = []
+    
+    # need to call: compute_metric_for_a_pair_returns
+    # arguments: sigs_and_abundances1, sigs_and_abundances2, metric
+    # prepare three lists
+    sigs1_list = []
+    sigs2_list = []
     for i in range(len(input_files)):
         for j in range(i+1, len(input_files)):
-            all_i_j_pairs.append((i, j))
-
-    num_processes = 128
-    for i in range(num_processes):
-        start_index = i * num_pairs // num_processes
-        end_index = (i+1) * num_pairs // num_processes
-
-        p = multiprocessing.Process(target=compute_metric_for_range_of_pairs, args=(all_i_j_pairs, all_sketches, start_index, end_index, return_list, args.metric))
-        process_list.append(p)
-        p.start()
-
-    for p in process_list:
-        p.join()
-
+            sigs1_list.append(all_sketches[i])
+            sigs2_list.append(all_sketches[j])
+    metrics_list = [args.metric] * len(sigs1_list)
+    
+    # use processpool executor to compute the metrics
+    with ProcessPoolExecutor(max_workers=num_processes_in_parallel) as executor:
+        return_list = list(executor.map(compute_metric_for_a_pair_returns, sigs1_list, sigs2_list, metrics_list))
+    
+    print('Done computing pairwise metrics, now writing to file')
+    
     # extract the values from the return_list
     index = 0
     for i in range(len(input_files)):
