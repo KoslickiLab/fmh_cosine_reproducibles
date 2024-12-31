@@ -85,7 +85,10 @@ def main():
 
         # dump the .msh file into a json file
         # command: mash info mash_sketch.msh -d > mash_sketch.json
-        os.system(f"mash info mash_sketch.msh -d > mash_sketch.json")
+        return_code = os.system(f"mash info mash_sketch.msh -d > mash_sketch.json")
+        if return_code != 0:
+            print("Error in creating json file (check Mash version)")
+            return
 
         print('*****************************')
         print('Json created, reading hashes')
