@@ -227,7 +227,7 @@ def compute_metric_for_a_pair(sig1, sig2, metric, return_list, index):
         return_list[index] = -1
 
 
-def compute_metric_for_range_of_pairs(i_j_pairs_to_work_on, all_sketches, start_index, end_index, return_list, metric):
+def compute_metric_for_range_of_pairs(i_j_pairs_to_work_on, all_sketches, start_index, end_index, return_list, metric, show_progress):
     for index in range(start_index, end_index):
         i, j = i_j_pairs_to_work_on[index-start_index]
         sigs_and_abundances1 = all_sketches[i]
@@ -237,6 +237,9 @@ def compute_metric_for_range_of_pairs(i_j_pairs_to_work_on, all_sketches, start_
         compute_metric_for_a_pair(sigs_and_abundances1, sigs_and_abundances2, metric, return_list, index)
 
         # show progress
+        if not show_progress:
+            continue
+        
         progress_percentage = 100*(index-start_index+1)/(end_index-start_index)
         print(f'{progress_percentage:.3f}% completed..', end='\r')
 
@@ -349,12 +352,14 @@ def main():
         for j in range(i+1, len(input_files)):
             all_i_j_pairs.append((i, j))
 
-    num_processes = 128
-    for i in range(num_processes):
-        start_index = i * num_pairs // num_processes
-        end_index = (i+1) * num_pairs // num_processes
+    for i in range(num_processes_in_parallel):
+        start_index = i * num_pairs // num_processes_in_parallel
+        end_index = (i+1) * num_pairs // num_processes_in_parallel
+        
+        if i == num_processes_in_parallel - 1:
+            end_index = num_pairs
 
-        p = multiprocessing.Process(target=compute_metric_for_range_of_pairs, args=(all_i_j_pairs, all_sketches, start_index, end_index, return_list, args.metric))
+        p = multiprocessing.Process(target=compute_metric_for_range_of_pairs, args=(all_i_j_pairs, all_sketches, start_index, end_index, return_list, args.metric, i==num_processes_in_parallel-1))
         process_list.append(p)
         p.start()
 
