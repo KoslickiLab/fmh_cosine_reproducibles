@@ -9,7 +9,7 @@ import multiprocessing
 
 
 
-def process_a_range_of_pairs(filenames, filenames_to_hashes, all_i_j_pairs, start_index, end_index, return_list):
+def process_a_range_of_pairs(filenames, filenames_to_hashes, all_i_j_pairs, start_index, end_index, return_list, show_progress):
     """
     Compute the pairwise cosines for a range of pairs of files
     """
@@ -26,7 +26,12 @@ def process_a_range_of_pairs(filenames, filenames_to_hashes, all_i_j_pairs, star
         return_list[index] = cosine
 
         completed += 1
-        print(f"Completed {completed} out of {end_index - start_index}", end='\r')
+        
+        if not show_progress:
+            continue
+        
+        percentage_progress = 100 * completed / (end_index - start_index)
+        print(f"Completed {percentage_progress:.3f}%", end='\r')
 
 
 """
@@ -44,6 +49,7 @@ def parse_args():
     parser.add_argument("--sketch_size", type=int, default=10000, help="Sketch size")
     parser.add_argument("--num_cores", type=int, default=128, help="Num of cores to parallelize over")
     parser.add_argument('--no_parallel', dest='no_parallel', action='store_true', help='Do not parallelize')
+    parser.add_argument('--skip_sketch', dest='skip_sketch', action='store_true', help='Skip sketching')
     return parser.parse_args()
 
 def main():
@@ -63,26 +69,28 @@ def main():
     for file in files:
         assert os.path.exists(file)
     
-    print('*****************************')
-    print('Running Mash')
-    print('*****************************')
+    if not args.skip_sketch:
+        print('*****************************')
+        print('Running Mash')
+        print('*****************************')
 
-    # create a sketch for each file in the file list
-    # command: mash sketch -k kmer_size -s sketch_size -o mash_sketch -l filelist
-    # the generated output file: mash_sketch.msh
-    os.system(f"mash sketch -k {args.kmer_size} -s {args.sketch_size} -o mash_sketch -l {args.file_list} -p {args.num_cores}")
+        # create a sketch for each file in the file list
+        # command: mash sketch -k kmer_size -s sketch_size -o mash_sketch -l filelist
+        # the generated output file: mash_sketch.msh
+        os.system(f"mash sketch -k {args.kmer_size} -s {args.sketch_size} -o mash_sketch -l {args.file_list} -p {args.num_cores}")
 
-    print('*****************************')
-    print('Sketching completed, creating json')
-    print('*****************************')
+        print('*****************************')
+        print('Sketching completed, creating json')
+        print('*****************************')
 
-    # dump the .msh file into a json file
-    # command: mash info mash_sketch.msh -d > mash_sketch.json
-    os.system(f"mash info mash_sketch.msh -d > mash_sketch.json")
+        # dump the .msh file into a json file
+        # command: mash info mash_sketch.msh -d > mash_sketch.json
+        os.system(f"mash info mash_sketch.msh -d > mash_sketch.json")
 
-    print('*****************************')
-    print('Json created, reading hashes')
-    print('*****************************')
+        print('*****************************')
+        print('Json created, reading hashes')
+        print('*****************************')
+
 
     # read the json file to obtain the min hash values
     # format: data['sketches']['name'] is the filename
@@ -124,9 +132,10 @@ def main():
             f.write("file1,file2,cosine_similarity\n")
             for (filename1, filename2), cosine in pair_to_metric_dict.items():
                 f.write(f"{filename1},{filename2},{cosine}\n")
+        
+        return
                 
 
-    num_threads = 128
     all_i_j_pairs = []
     for i in range(len(files)):
         for j in range(i+1, len(files)):
@@ -137,12 +146,14 @@ def main():
     return_list = multiprocessing.Manager().list([-1] * len(all_i_j_pairs))
 
     list_processes = []
-    for i in range(num_threads):
-        start_index = i * len(all_i_j_pairs) // num_threads
-        end_index = (i + 1) * len(all_i_j_pairs) // num_threads
-        if i == num_threads - 1:
+    show_progress = False
+    for i in range(args.num_cores):
+        start_index = i * len(all_i_j_pairs) // args.num_cores
+        end_index = (i + 1) * len(all_i_j_pairs) // args.num_cores
+        if i == args.num_cores - 1:
             end_index = len(all_i_j_pairs)
-        p = multiprocessing.Process(target=process_a_range_of_pairs, args=(files, filenames_to_hashes, all_i_j_pairs, start_index, end_index, return_list))
+            show_progress = True
+        p = multiprocessing.Process(target=process_a_range_of_pairs, args=(files, filenames_to_hashes, all_i_j_pairs, start_index, end_index, return_list, show_progress))
         p.start()
         list_processes.append(p)
 
