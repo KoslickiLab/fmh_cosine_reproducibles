@@ -237,7 +237,8 @@ def compute_metric_for_range_of_pairs(i_j_pairs_to_work_on, all_sketches, start_
         compute_metric_for_a_pair(sigs_and_abundances1, sigs_and_abundances2, metric, return_list, index)
 
         # show progress
-        print(f'{index-start_index}/{(end_index-start_index)} completed..', end='\r')
+        progress_percentage = 100*(index-start_index+1)/(end_index-start_index)
+        print(f'{progress_percentage:.3f}% completed..', end='\r')
 
 
 def main():
@@ -338,20 +339,27 @@ def main():
     pair_to_metric_dict = {}
     print('Computing pairwise metrics')
     
-    # need to call: compute_metric_for_a_pair_returns
-    # arguments: sigs_and_abundances1, sigs_and_abundances2, metric
-    # prepare three lists
-    sigs1_list = []
-    sigs2_list = []
+    process_list = []
+    num_files = len(input_files)
+    num_pairs = num_files * (num_files - 1) // 2
+    return_list = multiprocessing.Manager().list([-1] * num_pairs)
+
+    all_i_j_pairs = []
     for i in range(len(input_files)):
         for j in range(i+1, len(input_files)):
-            sigs1_list.append(all_sketches[i])
-            sigs2_list.append(all_sketches[j])
-    metrics_list = [args.metric] * len(sigs1_list)
-    
-    # use processpool executor to compute the metrics
-    with ProcessPoolExecutor(max_workers=num_processes_in_parallel) as executor:
-        return_list = list(executor.map(compute_metric_for_a_pair_returns, sigs1_list, sigs2_list, metrics_list))
+            all_i_j_pairs.append((i, j))
+
+    num_processes = 128
+    for i in range(num_processes):
+        start_index = i * num_pairs // num_processes
+        end_index = (i+1) * num_pairs // num_processes
+
+        p = multiprocessing.Process(target=compute_metric_for_range_of_pairs, args=(all_i_j_pairs, all_sketches, start_index, end_index, return_list, args.metric))
+        process_list.append(p)
+        p.start()
+
+    for p in process_list:
+        p.join()
     
     print('Done computing pairwise metrics, now writing to file')
     
