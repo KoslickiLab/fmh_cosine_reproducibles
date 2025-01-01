@@ -50,6 +50,7 @@ def parse_args():
     parser.add_argument("--num_cores", type=int, default=128, help="Num of cores to parallelize over")
     parser.add_argument('--no_parallel', dest='no_parallel', action='store_true', help='Do not parallelize')
     parser.add_argument('--skip_sketch', dest='skip_sketch', action='store_true', help='Skip sketching')
+    parser.add_argument('--skip_similarity', dest='skip_similarity', action='store_true', help='Skip similarity computation')
     return parser.parse_args()
 
 def main():
@@ -91,9 +92,15 @@ def main():
             return
 
         print('*****************************')
-        print('Json created, reading hashes')
+        print('Json created')
         print('*****************************')
 
+
+    if args.skip_similarity:
+        print('*****************************')
+        print('Skipping similarity computation')
+        print('*****************************')
+        return
 
     # read the json file to obtain the min hash values
     # format: data['sketches']['name'] is the filename
