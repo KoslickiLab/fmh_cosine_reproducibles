@@ -2,6 +2,8 @@ import argparse
 import os
 import json
 import numpy as np
+from multiprocessing import ProcessPoolExecutor
+from tqdm import tqdm
 
 """
 sig1 and sig2 are lists of tuples (min, abundance)
@@ -170,8 +172,18 @@ def parse_args():
     parser.add_argument("output_file", type=str, help="Path to the output file")
     parser.add_argument("--kmer_size", type=int, default=21, help="Kmer size")
     parser.add_argument("--metric", type=str, default="cosine", help="Metric to use")
+    parser.add_argument("--num_cores", type=int, default=20, help="Num of cores to parallelize over")
     
     return parser.parse_args()
+
+
+
+def compute_metric_for_a_pair_returns(sketch_filename1, sketch_filename2, metric, kmer_size, seed, scale_factor):
+    mins1 = read_fmh_sig_file(sketch_filename1, kmer_size, seed, scale_factor)
+    mins2 = read_fmh_sig_file(sketch_filename2, kmer_size, seed, scale_factor)
+    return compute_metric_for_a_pair_returns(mins1, mins2, metric)
+
+    
     
 def main():
     args = parse_args()
@@ -193,24 +205,29 @@ def main():
         assert os.path.exists(file)
     
     pair_to_metric = {}
-    num_total_pairs = len(files) * (len(files) - 1) // 2
-    num_pairs_completed = 0
+    
+    executor = ProcessPoolExecutor(max_workers=args.num_cores)
+    filename_pairs = []
+    
     for i in range(len(files)):
         filename1 = files[i]
-            
         sketch_filename1 = f'{filename1}_{args.kmer_size}_{scale_factor}_{seed}.sig'
-        mins1 = read_fmh_sig_file(sketch_filename1, args.kmer_size, seed, scale_factor)
-            
         for j in range(i+1, len(files)):
             filename2 = files[j]
             sketch_filename2 = f'{filename2}_{args.kmer_size}_{scale_factor}_{seed}.sig'
-            mins2 = read_fmh_sig_file(sketch_filename2, args.kmer_size, seed, scale_factor)
+            filename_pairs.append((sketch_filename1, sketch_filename2))
             
-            metric_value = compute_metric_for_a_pair_returns(mins1, mins2, args.metric)
-            pair_to_metric[(filename1, filename2)] = metric_value
-            
-            num_pairs_completed += 1
-            print(f"Completed {num_pairs_completed}/{num_total_pairs} pairs")
+    print (f"Computing metric for {len(filename_pairs)} pairs")
+    returned_metrics = list(tqdm(executor.map(compute_metric_for_a_pair_returns, [pair[0] for pair in filename_pairs], [pair[1] for pair in filename_pairs], [args.metric] * len(filename_pairs), [args.kmer_size] * len(filename_pairs), [seed] * len(filename_pairs), [scale_factor] * len(filename_pairs))), total=len(filename_pairs))
+    
+    # populate the pair_to_metric dictionary
+    for i in range(len(filename_pairs)):
+        pair = filename_pairs[i]
+        metric_value = returned_metrics[i]
+        pair_to_metric[pair] = metric_value
+        
+    # write the pair_to_metric dictionary to the output file
+    print (f"Writing the output to {args.output_file}")
             
     with open(args.output_file, "w") as f:
         for pair, metric_value in pair_to_metric.items():

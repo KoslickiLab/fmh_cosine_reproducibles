@@ -4,3 +4,4 @@ pandas
 mash=2.0
 sourmash
 scipy
+tqdm
