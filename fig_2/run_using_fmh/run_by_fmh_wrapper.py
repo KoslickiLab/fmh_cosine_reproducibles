@@ -342,6 +342,9 @@ def main():
     pair_to_metric_dict = {}
     print('Computing pairwise metrics')
     
+    # use all the cores to compute the metrics
+    num_processes_in_parallel = args.cores
+    
     process_list = []
     num_files = len(input_files)
     num_pairs = num_files * (num_files - 1) // 2
