@@ -267,15 +267,12 @@ def compute_metric_for_a_pair(sig1, sig2, metric, return_list, index):
             return_list[index] = 0.0
             return
 
-        # compute the dot product
-        dot_product = get_dot_product(sig1, sig2)
-        
-        # compute the magnitudes
-        magnitude1 = compute_magnitute(sig1)
-        magnitude2 = compute_magnitute(sig2)
+        num_common = get_num_common_using_abundances(sig1, sig2)
+        total1 = get_total_using_abundances(sig1)
+        total2 = get_total_using_abundances(sig2)
         
         # compute the bray curtis similarity
-        return_value = 1 - (2.0 * dot_product / (magnitude1 + magnitude2))
+        return_value = 1 - (2.0 * num_common / (total1 + total2))
         return_list[index] = return_value
     else:
         return_list[index] = -1
