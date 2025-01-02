@@ -218,7 +218,7 @@ def main():
             filename_pairs.append((sketch_filename1, sketch_filename2))
             
     print (f"Computing metric for {len(filename_pairs)} pairs")
-    returned_metrics = list(tqdm(executor.map(compute_metric_for_a_pair_returns, [pair[0] for pair in filename_pairs], [pair[1] for pair in filename_pairs], [args.metric] * len(filename_pairs), [args.kmer_size] * len(filename_pairs), [seed] * len(filename_pairs), [scale_factor] * len(filename_pairs))), total=len(filename_pairs))
+    returned_metrics = list(tqdm(executor.map(compute_metric_for_a_pair_returns, [pair[0] for pair in filename_pairs], [pair[1] for pair in filename_pairs], [args.metric] * len(filename_pairs), [args.kmer_size] * len(filename_pairs), [seed] * len(filename_pairs), [scale_factor] * len(filename_pairs)), total=len(filename_pairs)))
     
     # populate the pair_to_metric dictionary
     for i in range(len(filename_pairs)):
