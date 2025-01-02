@@ -23,7 +23,8 @@ def process_a_range_of_pairs(filenames, filenames_to_hashes, all_i_j_pairs, star
         
         dot_product = set(hash1).intersection(hash2)
         cosine = len(dot_product) / (len(hash1)**0.5 * len(hash2)**0.5)
-        return_list[index] = cosine
+        bray_curtis = (len(hash1) + len(hash2) - 2 * len(dot_product)) / (len(hash1) + len(hash2))
+        return_list[index] = (cosine, bray_curtis)
 
         completed += 1
         
@@ -48,7 +49,6 @@ def parse_args():
     parser.add_argument("--kmer_size", type=int, default=21, help="Kmer size")
     parser.add_argument("--sketch_size", type=int, default=10000, help="Sketch size")
     parser.add_argument("--num_cores", type=int, default=128, help="Num of cores to parallelize over")
-    parser.add_argument('--no_parallel', dest='no_parallel', action='store_true', help='Do not parallelize')
     parser.add_argument('--skip_sketch', dest='skip_sketch', action='store_true', help='Skip sketching')
     parser.add_argument('--skip_similarity', dest='skip_similarity', action='store_true', help='Skip similarity computation')
     return parser.parse_args()
@@ -115,35 +115,6 @@ def main():
     print('*****************************')
     print('Hashes read, computing pairwise cosines')
     print('*****************************')
-
-    if args.no_parallel:
-        pair_to_metric_dict = {}
-        num_completed = 0
-        total = len(files) * (len(files) - 1) // 2
-        for i in range(len(files)):
-            for j in range(i+1, len(files)):
-                filename1 = files[i]
-                filename2 = files[j]
-                hash1 = filenames_to_hashes[filename1]
-                hash2 = filenames_to_hashes[filename2]
-                
-                dot_product = set(hash1).intersection(hash2)
-                cosine = len(dot_product) / (len(hash1)**0.5 * len(hash2)**0.5)
-                pair_to_metric_dict[(filename1, filename2)] = cosine
-                num_completed += 1
-                print(f"Completed {num_completed} out of {total}", end='\r')
-        print()
-        print('*****************************')
-        print('Computing completed, writing to file')
-        print('*****************************')
-
-        # write the results to the output file
-        with open(args.output_file, "w") as f:
-            f.write("file1,file2,cosine_similarity\n")
-            for (filename1, filename2), cosine in pair_to_metric_dict.items():
-                f.write(f"{filename1},{filename2},{cosine}\n")
-        
-        return
                 
 
     all_i_j_pairs = []
@@ -177,12 +148,12 @@ def main():
     # write the results to the output file
     index = 0
     with open(args.output_file, "w") as f:
-        f.write("file1,file2,cosine_similarity\n")
+        f.write("file1,file2,cosine_similarity,bray_curtis\n")
         for i in range(len(files)):
             for j in range(i+1, len(files)):
-                cosine = return_list[index]
+                cosine, bray_curtis = return_list[index]
                 index += 1
-                f.write(f"{files[i]},{files[j]},{cosine}\n")
+                f.write(f"{files[i]},{files[j]},{cosine},{bray_curtis}\n")
 
 
 

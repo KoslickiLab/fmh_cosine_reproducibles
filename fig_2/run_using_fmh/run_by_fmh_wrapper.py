@@ -200,6 +200,21 @@ def compute_metric_for_a_pair_returns(sig1, sig2, metric):
         # compute the cosine similarity
         return_value =  dot_product / (magnitude1 * magnitude2)
         return return_value
+    elif metric == 'braycurtis':
+        # if either of the signatures is empty, return 0.0
+        if len(sig1) == 0 or len(sig2) == 0:
+            return 0.0
+
+        # compute the dot product
+        dot_product = get_dot_product(sig1, sig2)
+        
+        # compute the magnitudes
+        magnitude1 = compute_magnitute(sig1)
+        magnitude2 = compute_magnitute(sig2)
+        
+        # compute the bray curtis similarity
+        return_value = 1 - (2.0 * dot_product / (magnitude1 + magnitude2))
+        return return_value
     else:
         return -1
 
@@ -222,6 +237,22 @@ def compute_metric_for_a_pair(sig1, sig2, metric, return_list, index):
         
         # compute the cosine similarity
         return_value =  dot_product / (magnitude1 * magnitude2)
+        return_list[index] = return_value
+    elif metric == 'braycurtis':
+        # if either of the signatures is empty, return 0.0
+        if len(sig1) == 0 or len(sig2) == 0:
+            return_list[index] = 0.0
+            return
+
+        # compute the dot product
+        dot_product = get_dot_product(sig1, sig2)
+        
+        # compute the magnitudes
+        magnitude1 = compute_magnitute(sig1)
+        magnitude2 = compute_magnitute(sig2)
+        
+        # compute the bray curtis similarity
+        return_value = 1 - (2.0 * dot_product / (magnitude1 + magnitude2))
         return_list[index] = return_value
     else:
         return_list[index] = -1
