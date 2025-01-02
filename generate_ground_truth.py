@@ -2,7 +2,7 @@ import argparse
 import os
 import json
 import numpy as np
-from multiprocessing import ProcessPoolExecutor
+from concurrent.futures import ProcessPoolExecutor
 from tqdm import tqdm
 
 """
