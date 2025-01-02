@@ -1,8 +1,162 @@
 import argparse
 import os
+import json
+import numpy as np
 
-from run_using_fmh.read_fmh_sketch import read_fmh_sig_file
-from run_using_fmh.run_by_fmh_wrapper import compute_metric_for_a_pair_returns
+"""
+sig1 and sig2 are lists of tuples (min, abundance)
+This function gets the dot product of the two sigs
+The sigs are already sorted by min
+"""
+def get_dot_product(sig1, sig2):
+    if len(sig1) == 0 or len(sig2) == 0:
+        return 0
+    
+    i = 0
+    j = 0
+    dot_product = 0
+
+    while i < len(sig1) and j < len(sig2):
+        if sig1[i][0] == sig2[j][0]:
+            dot_product += sig1[i][1] * sig2[j][1]
+            i += 1
+            j += 1
+        elif sig1[i][0] < sig2[j][0]:
+            i += 1
+        else:
+            j += 1
+
+    return dot_product
+
+"""
+sig is a list of tuples (min, abundance)
+This function computes the magnitude of the signature vector
+"""
+def compute_magnitute(sig):
+    abundances_list = [abundance for min, abundance in sig]
+    return sum([abundance**2 for abundance in abundances_list])**0.5
+
+
+def get_num_common_using_abundances(sig1, sig2):
+    # if either of the signatures is empty, return 0
+    if len(sig1) == 0 or len(sig2) == 0:
+        return 0
+
+    i = 0
+    j = 0
+    num_common = 0
+
+    while i < len(sig1) and j < len(sig2):
+        if sig1[i][0] == sig2[j][0]:
+            num_common += min(sig1[i][1], sig2[j][1])
+            i += 1
+            j += 1
+        elif sig1[i][0] < sig2[j][0]:
+            i += 1
+        else:
+            j += 1
+
+    return num_common
+
+
+def get_total_using_abundances(sig):
+    return sum([abundance for min, abundance in sig])
+
+def compute_metric_for_a_pair_returns(sig1, sig2, metric):
+    # sig1 and sig2: list of tuples (min, abundance)
+    if metric == 'cosine':
+        # if either of the signatures is empty, return 0.0
+        if len(sig1) == 0 or len(sig2) == 0:
+            return 0.0
+
+        # compute the dot product
+        dot_product = get_dot_product(sig1, sig2)
+        
+        # compute the magnitudes
+        magnitude1 = compute_magnitute(sig1)
+        magnitude2 = compute_magnitute(sig2)
+        
+        # compute the cosine similarity
+        return_value =  dot_product / (magnitude1 * magnitude2)
+        return return_value
+    elif metric == 'braycurtis':
+        # if either of the signatures is empty, return 0.0
+        if len(sig1) == 0 or len(sig2) == 0:
+            return 0.0
+
+        num_common = get_num_common_using_abundances(sig1, sig2)
+        total1 = get_total_using_abundances(sig1)
+        total2 = get_total_using_abundances(sig2)
+        
+        # compute the bray curtis similarity
+        return_value = 1 - (2.0 * num_common / (total1 + total2))
+        return return_value
+    else:
+        return -1
+
+def read_fmh_sig_file(file, ksize, seed, scaled):
+    # compute the correct max_hash
+    theoretical_max_hash = np.longdouble(2**64 - 1)
+    divide_by = np.longdouble(scaled)
+    target_max_hash = round( theoretical_max_hash / divide_by)
+
+    # first check that the input file exists
+    if not os.path.exists(file):
+        raise FileNotFoundError(f'Input file {file} does not exist')
+
+    # read the file as json
+    try:
+        f = open(file, 'r')
+        json_data = json.load(f)
+        f.close()
+    except json.JSONDecodeError as e:
+        raise Exception(f'Error while reading the file {file}: {e}')
+    
+    json_data = json_data[0]
+        
+    # check that the json data has the required keys
+    required_keys = ['signatures']
+    if not all(key in json_data for key in required_keys):
+        raise KeyError(f'File {file} does not have the required keys: {required_keys}')
+        
+    # check that the signatures are a list
+    if not isinstance(json_data['signatures'], list):
+        raise TypeError(f'Signatures in file {file} should be a list')
+    
+    # check that each entry in the signatures is a dictionary containing the following keys:
+    # 'ksize': the kmer size, an integer
+    # 'seed': the seed used to generate the sketch, an integer
+    # 'max_hash': the maximum hash value, an integer
+    # 'mins': a list of integers
+
+    sigs = json_data['signatures']
+    for sig in sigs:
+        required_keys = ['ksize', 'seed', 'max_hash', 'mins']
+        if not all(key in sig for key in required_keys):
+            raise KeyError(f'Signature {sig} does not have the required keys: {required_keys}')
+        
+        # check that the values are of the correct type
+        if not isinstance(sig['ksize'], int):
+            raise TypeError(f'ksize in signature {sig} should be an integer')
+        if not isinstance(sig['seed'], int):
+            raise TypeError(f'seed in signature {sig} should be an integer')
+        if not isinstance(sig['max_hash'], int):
+            raise TypeError(f'max_hash in signature {sig} should be an integer')
+        if not isinstance(sig['mins'], list):
+            raise TypeError(f'mins in signature {sig} should be a list')
+
+        # if this signature is the correct ksize, and correct seed, and correct max_hash, return the mins
+        if sig['ksize'] == ksize and sig['seed'] == seed and sig['max_hash'] == target_max_hash:
+            # if "abundances" is present, extract the abundances
+            if 'abundances' in sig:
+                return list(zip(sig['mins'], sig['abundances']))
+            else:
+                return list(zip(sig['mins'], [1.0] * len(sig['mins'])))
+        
+    # if we reach this point, we did not find the correct signature
+    raise ValueError(f'Could not find the signature with ksize={ksize}, seed={seed}, and max_hash={target_max_hash}')
+
+
 
 def parse_args():
     # list of args
