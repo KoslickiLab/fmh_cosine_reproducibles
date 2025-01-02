@@ -182,6 +182,32 @@ def compute_magnitute(sig):
     return sum([abundance**2 for abundance in abundances_list])**0.5
 
 
+def get_num_common_using_abundances(sig1, sig2):
+    # if either of the signatures is empty, return 0
+    if len(sig1) == 0 or len(sig2) == 0:
+        return 0
+
+    i = 0
+    j = 0
+    num_common = 0
+
+    while i < len(sig1) and j < len(sig2):
+        if sig1[i][0] == sig2[j][0]:
+            num_common += min(sig1[i][1], sig2[j][1])
+            i += 1
+            j += 1
+        elif sig1[i][0] < sig2[j][0]:
+            i += 1
+        else:
+            j += 1
+
+    return num_common
+
+
+def get_total_using_abundances(sig):
+    return sum([abundance for min, abundance in sig])
+
+
 
 def compute_metric_for_a_pair_returns(sig1, sig2, metric):
     # sig1 and sig2: list of tuples (min, abundance)
@@ -205,15 +231,12 @@ def compute_metric_for_a_pair_returns(sig1, sig2, metric):
         if len(sig1) == 0 or len(sig2) == 0:
             return 0.0
 
-        # compute the dot product
-        dot_product = get_dot_product(sig1, sig2)
-        
-        # compute the magnitudes
-        magnitude1 = compute_magnitute(sig1)
-        magnitude2 = compute_magnitute(sig2)
+        num_common = get_num_common_using_abundances(sig1, sig2)
+        total1 = get_total_using_abundances(sig1)
+        total2 = get_total_using_abundances(sig2)
         
         # compute the bray curtis similarity
-        return_value = 1 - (2.0 * dot_product / (magnitude1 + magnitude2))
+        return_value = 1 - (2.0 * num_common / (total1 + total2))
         return return_value
     else:
         return -1
