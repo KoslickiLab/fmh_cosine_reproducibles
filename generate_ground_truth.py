@@ -216,3 +216,6 @@ def main():
     with open(args.output_file, "w") as f:
         for pair, metric_value in pair_to_metric.items():
             f.write(f"{pair[0]}\t{pair[1]}\t{metric_value}\n")
+            
+if __name__ == "__main__":
+    main()
