@@ -196,16 +196,18 @@ def main():
     num_total_pairs = len(files) * (len(files) - 1) // 2
     num_pairs_completed = 0
     for i in range(len(files)):
+        
+        sketch_filename1 = f'{filename1}_{args.kmer_size}_{scale_factor}_{seed}.sig'
+        mins1 = read_fmh_sig_file(sketch_filename1, args.kmer_size, seed, scale_factor)
+            
         for j in range(i+1, len(files)):
             filename1 = files[i]
             filename2 = files[j]
             
             # read the contents of the files
-            sketch_filename1 = f'{filename1}_{args.kmer_size}_{scale_factor}_{seed}.sig'
             sketch_filename2 = f'{filename2}_{args.kmer_size}_{scale_factor}_{seed}.sig'
-            
-            mins1 = read_fmh_sig_file(sketch_filename1, args.kmer_size, seed, scale_factor)
             mins2 = read_fmh_sig_file(sketch_filename2, args.kmer_size, seed, scale_factor)
+            
             metric_value = compute_metric_for_a_pair_returns(mins1, mins2, args.metric)
             
             pair_to_metric[(filename1, filename2)] = metric_value
