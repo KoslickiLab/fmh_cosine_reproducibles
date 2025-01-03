@@ -1,0 +1,120 @@
+Generating sketches
+fracKmcSketch wgs/f1107_ihmp_IBD_CSM5MCWK_P.fastq.gz wgs/f1107_ihmp_IBD_CSM5MCWK_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1126_ihmp_IBD_MSM5LLGH_P.fastq.gz wgs/f1126_ihmp_IBD_MSM5LLGH_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1037_ihmp_IBD_MSM5ZOJY_P.fastq.gz wgs/f1037_ihmp_IBD_MSM5ZOJY_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1167_ihmp_IBD_CSM5LLGB_P.fastq.gz wgs/f1167_ihmp_IBD_CSM5LLGB_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f915_ihmp_IBD_CSM5MCWM_P.fastq.gz wgs/f915_ihmp_IBD_CSM5MCWM_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1525_ihmp_IBD_HSM5MD82_P.fastq.gz wgs/f1525_ihmp_IBD_HSM5MD82_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1025_ihmp_IBD_ESM5MEE6_P.fastq.gz wgs/f1025_ihmp_IBD_ESM5MEE6_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1513_ihmp_IBD_CSM5MCTZ_P.fastq.gz wgs/f1513_ihmp_IBD_CSM5MCTZ_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1029_ihmp_IBD_MSM5LLHI_P.fastq.gz wgs/f1029_ihmp_IBD_MSM5LLHI_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1289_ihmp_IBD_ESM5GEZA_P.fastq.gz wgs/f1289_ihmp_IBD_ESM5GEZA_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1196_ihmp_IBD_ESM5GEYY_P.fastq.gz wgs/f1196_ihmp_IBD_ESM5GEYY_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1343_ihmp_IBD_CSM5MCUA_P.fastq.gz wgs/f1343_ihmp_IBD_CSM5MCUA_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1028_ihmp_IBD_MSM5LLIK_P.fastq.gz wgs/f1028_ihmp_IBD_MSM5LLIK_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1058_ihmp_IBD_MSM5LLGN_P.fastq.gz wgs/f1058_ihmp_IBD_MSM5LLGN_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f977_ihmp_IBD_CSM5FZ3Z_P.fastq.gz wgs/f977_ihmp_IBD_CSM5FZ3Z_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1280_ihmp_IBD_CSM5MCUW_P.fastq.gz wgs/f1280_ihmp_IBD_CSM5MCUW_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1003_ihmp_IBD_CSM5MCVJ_P.fastq.gz wgs/f1003_ihmp_IBD_CSM5MCVJ_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1034_ihmp_IBD_MSM5LLIM_P.fastq.gz wgs/f1034_ihmp_IBD_MSM5LLIM_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f976_ihmp_IBD_MSM5LLHO_P.fastq.gz wgs/f976_ihmp_IBD_MSM5LLHO_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1294_ihmp_IBD_CSM5MCUQ_P.fastq.gz wgs/f1294_ihmp_IBD_CSM5MCUQ_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1004_ihmp_IBD_CSM5MCWI_P.fastq.gz wgs/f1004_ihmp_IBD_CSM5MCWI_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1064_ihmp_IBD_MSM5LLGJ_P.fastq.gz wgs/f1064_ihmp_IBD_MSM5LLGJ_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f3168_ihmp_IBD_CSM79HGV_P.fastq.gz wgs/f3168_ihmp_IBD_CSM79HGV_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f2675_ihmp_IBD_ESM5MEC7_P.fastq.gz wgs/f2675_ihmp_IBD_ESM5MEC7_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1012_ihmp_IBD_CSM5YRY7_P.fastq.gz wgs/f1012_ihmp_IBD_CSM5YRY7_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1212_ihmp_IBD_CSM5FZ4E_P.fastq.gz wgs/f1212_ihmp_IBD_CSM5FZ4E_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f914_ihmp_IBD_CSM5MCUC_P.fastq.gz wgs/f914_ihmp_IBD_CSM5MCUC_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1495_ihmp_IBD_HSM5MD8N_P.fastq.gz wgs/f1495_ihmp_IBD_HSM5MD8N_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1090_ihmp_IBD_CSM5FZ42_P.fastq.gz wgs/f1090_ihmp_IBD_CSM5FZ42_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f2951_ihmp_IBD_MSM79H8J_P.fastq.gz wgs/f2951_ihmp_IBD_MSM79H8J_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1093_ihmp_IBD_MSM5LLH2_P.fastq.gz wgs/f1093_ihmp_IBD_MSM5LLH2_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f955_ihmp_IBD_CSM5FZ46_P.fastq.gz wgs/f955_ihmp_IBD_CSM5FZ46_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1222_ihmp_IBD_CSM5FZ4G_P.fastq.gz wgs/f1222_ihmp_IBD_CSM5FZ4G_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1035_ihmp_IBD_HSM5MD4W_P.fastq.gz wgs/f1035_ihmp_IBD_HSM5MD4W_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1015_ihmp_IBD_CSM5FZ3X_P.fastq.gz wgs/f1015_ihmp_IBD_CSM5FZ3X_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1253_ihmp_IBD_MSM5LLI8_P.fastq.gz wgs/f1253_ihmp_IBD_MSM5LLI8_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1042_ihmp_IBD_CSM5MCVZ_P.fastq.gz wgs/f1042_ihmp_IBD_CSM5MCVZ_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f941_ihmp_IBD_CSM5FZ4C_P.fastq.gz wgs/f941_ihmp_IBD_CSM5FZ4C_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1190_ihmp_IBD_MSM5FZA2_P.fastq.gz wgs/f1190_ihmp_IBD_MSM5FZA2_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1169_ihmp_IBD_MSM5LLE3_P.fastq.gz wgs/f1169_ihmp_IBD_MSM5LLE3_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1246_ihmp_IBD_MSM5LLI4_P.fastq.gz wgs/f1246_ihmp_IBD_MSM5LLI4_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1137_ihmp_IBD_HSM5FZBP_P.fastq.gz wgs/f1137_ihmp_IBD_HSM5FZBP_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f953_ihmp_IBD_MSM5LLIE_P.fastq.gz wgs/f953_ihmp_IBD_MSM5LLIE_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f978_ihmp_IBD_HSM5MD4P_P.fastq.gz wgs/f978_ihmp_IBD_HSM5MD4P_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1181_ihmp_IBD_HSM5FZC2_P.fastq.gz wgs/f1181_ihmp_IBD_HSM5FZC2_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f927_ihmp_IBD_CSM5MCVV_P.fastq.gz wgs/f927_ihmp_IBD_CSM5MCVV_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1517_ihmp_IBD_HSM5MD87_P.fastq.gz wgs/f1517_ihmp_IBD_HSM5MD87_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f948_ihmp_IBD_MSM5LLHG_P.fastq.gz wgs/f948_ihmp_IBD_MSM5LLHG_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f2458_ihmp_IBD_CSM67U9H_P.fastq.gz wgs/f2458_ihmp_IBD_CSM67U9H_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1197_ihmp_IBD_CSM5MCVB_P.fastq.gz wgs/f1197_ihmp_IBD_CSM5MCVB_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1315_ihmp_IBD_ESM5GEZ4_P.fastq.gz wgs/f1315_ihmp_IBD_ESM5GEZ4_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1329_ihmp_IBD_CSM5MCUS_P.fastq.gz wgs/f1329_ihmp_IBD_CSM5MCUS_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1182_ihmp_IBD_MSM5LLIS_P.fastq.gz wgs/f1182_ihmp_IBD_MSM5LLIS_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1077_ihmp_IBD_MSM5LLGF_P.fastq.gz wgs/f1077_ihmp_IBD_MSM5LLGF_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f983_ihmp_IBD_MSM5LLH8_P.fastq.gz wgs/f983_ihmp_IBD_MSM5LLH8_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f949_ihmp_IBD_CSM5MCVF_P.fastq.gz wgs/f949_ihmp_IBD_CSM5MCVF_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1500_ihmp_IBD_ESM5ME9H_P.fastq.gz wgs/f1500_ihmp_IBD_ESM5ME9H_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1191_ihmp_IBD_HSM5MD7W_P.fastq.gz wgs/f1191_ihmp_IBD_HSM5MD7W_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1184_ihmp_IBD_CSM5MCU4_P.fastq.gz wgs/f1184_ihmp_IBD_CSM5MCU4_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1194_ihmp_IBD_CSM5MCV1_P.fastq.gz wgs/f1194_ihmp_IBD_CSM5MCV1_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1055_ihmp_IBD_MSM5LLGD_P.fastq.gz wgs/f1055_ihmp_IBD_MSM5LLGD_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1275_ihmp_IBD_ESM5MEEJ_P.fastq.gz wgs/f1275_ihmp_IBD_ESM5MEEJ_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1274_ihmp_IBD_MSM5LLI2_P.fastq.gz wgs/f1274_ihmp_IBD_MSM5LLI2_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1481_ihmp_IBD_ESM5GEYU_P.fastq.gz wgs/f1481_ihmp_IBD_ESM5GEYU_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1550_ihmp_IBD_MSM5LLIC_P.fastq.gz wgs/f1550_ihmp_IBD_MSM5LLIC_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f926_ihmp_IBD_CSM5FZ44_P.fastq.gz wgs/f926_ihmp_IBD_CSM5FZ44_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1272_ihmp_IBD_CSM5MCUE_P.fastq.gz wgs/f1272_ihmp_IBD_CSM5MCUE_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1097_ihmp_IBD_HSM5MD7Z_P.fastq.gz wgs/f1097_ihmp_IBD_HSM5MD7Z_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1211_ihmp_IBD_MSM5LLHQ_P.fastq.gz wgs/f1211_ihmp_IBD_MSM5LLHQ_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1519_ihmp_IBD_CSM5FZ4A_P.fastq.gz wgs/f1519_ihmp_IBD_CSM5FZ4A_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1444_ihmp_IBD_HSM5MD59_P.fastq.gz wgs/f1444_ihmp_IBD_HSM5MD59_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1019_ihmp_IBD_CSM5FZ3R_P.fastq.gz wgs/f1019_ihmp_IBD_CSM5FZ3R_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1108_ihmp_IBD_MSM5LLHR_P.fastq.gz wgs/f1108_ihmp_IBD_MSM5LLHR_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1001_ihmp_IBD_ESM5MEE2_P.fastq.gz wgs/f1001_ihmp_IBD_ESM5MEE2_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1324_ihmp_IBD_CSM5MCU8_P.fastq.gz wgs/f1324_ihmp_IBD_CSM5MCU8_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1265_ihmp_IBD_ESM5GEZ6_P.fastq.gz wgs/f1265_ihmp_IBD_ESM5GEZ6_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1849_ihmp_IBD_CSM67UB9_P.fastq.gz wgs/f1849_ihmp_IBD_CSM67UB9_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1122_ihmp_IBD_HSM5FZBR_P.fastq.gz wgs/f1122_ihmp_IBD_HSM5FZBR_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f909_ihmp_IBD_MSM5LLI6_P.fastq.gz wgs/f909_ihmp_IBD_MSM5LLI6_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1453_ihmp_IBD_ESM5GEZ1_P.fastq.gz wgs/f1453_ihmp_IBD_ESM5GEZ1_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1235_ihmp_IBD_CSM5MCUG_P.fastq.gz wgs/f1235_ihmp_IBD_CSM5MCUG_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1018_ihmp_IBD_CSM5FZ3V_P.fastq.gz wgs/f1018_ihmp_IBD_CSM5FZ3V_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f3126_ihmp_IBD_HSM5MD6E_P.fastq.gz wgs/f3126_ihmp_IBD_HSM5MD6E_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f968_ihmp_IBD_CSM5MCVD_P.fastq.gz wgs/f968_ihmp_IBD_CSM5MCVD_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f2596_ihmp_IBD_MSM79HD8_P.fastq.gz wgs/f2596_ihmp_IBD_MSM79HD8_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f908_ihmp_IBD_CSM5FZ4K_P.fastq.gz wgs/f908_ihmp_IBD_CSM5FZ4K_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f3159_ihmp_IBD_MSM79H94_P.fastq.gz wgs/f3159_ihmp_IBD_MSM79H94_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1524_ihmp_IBD_HSM5MD8A_P.fastq.gz wgs/f1524_ihmp_IBD_HSM5MD8A_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f945_ihmp_IBD_MSM5LLH4_P.fastq.gz wgs/f945_ihmp_IBD_MSM5LLH4_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1247_ihmp_IBD_MSM5LLHX_P.fastq.gz wgs/f1247_ihmp_IBD_MSM5LLHX_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1241_ihmp_IBD_CSM5MCUK_P.fastq.gz wgs/f1241_ihmp_IBD_CSM5MCUK_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1074_ihmp_IBD_MSM5LLGR_P.fastq.gz wgs/f1074_ihmp_IBD_MSM5LLGR_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1330_ihmp_IBD_CSM5MCUY_P.fastq.gz wgs/f1330_ihmp_IBD_CSM5MCUY_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1549_ihmp_IBD_MSM5FZ9N_P.fastq.gz wgs/f1549_ihmp_IBD_MSM5FZ9N_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+fracKmcSketch wgs/f1528_ihmp_IBD_CSM6J2H9_P.fastq.gz wgs/f1528_ihmp_IBD_CSM6J2H9_P.fastq.gz_21_1000_42.sig --ksize 21 --scaled 1000 --seed 42 --fq --t 2
+Done
+	Command being timed: "python /scratch/mbr5797/fmh_cosine_reproducibles/fig_2/run_using_fmh/run_by_fmh_wrapper.py -i filelist_100 -k 21 -s 1000 -m cosine -c 128 -o new_run_results_fmh_100_skip_similarity -p -C 2 -P 64 -sketch_only"
+	User time (seconds): 21103.81
+	System time (seconds): 2769.32
+	Percent of CPU this job got: 4657%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 8:32.60
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 11744044
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 34
+	Minor (reclaiming a frame) page faults: 943084801
+	Voluntary context switches: 5761068
+	Involuntary context switches: 52520
+	Swaps: 0
+	File system inputs: 11104
+	File system outputs: 702744664
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

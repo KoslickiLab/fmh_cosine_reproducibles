@@ -1,0 +1,29 @@
+*****************************
+Hashes read, computing pairwise cosines
+*****************************
+Completed 0.641%Completed 1.282%Completed 1.923%Completed 2.564%Completed 3.205%Completed 3.846%Completed 4.487%Completed 5.128%Completed 5.769%Completed 6.410%Completed 7.051%Completed 7.692%Completed 8.333%Completed 8.974%Completed 9.615%Completed 10.256%Completed 10.897%Completed 11.538%Completed 12.179%Completed 12.821%Completed 13.462%Completed 14.103%Completed 14.744%Completed 15.385%Completed 16.026%Completed 16.667%Completed 17.308%Completed 17.949%Completed 18.590%Completed 19.231%Completed 19.872%Completed 20.513%Completed 21.154%Completed 21.795%Completed 22.436%Completed 23.077%Completed 23.718%Completed 24.359%Completed 25.000%Completed 25.641%Completed 26.282%Completed 26.923%Completed 27.564%Completed 28.205%Completed 28.846%Completed 29.487%Completed 30.128%Completed 30.769%Completed 31.410%Completed 32.051%Completed 32.692%Completed 33.333%Completed 33.974%Completed 34.615%Completed 35.256%Completed 35.897%Completed 36.538%Completed 37.179%Completed 37.821%Completed 38.462%Completed 39.103%Completed 39.744%Completed 40.385%Completed 41.026%Completed 41.667%Completed 42.308%Completed 42.949%Completed 43.590%Completed 44.231%Completed 44.872%Completed 45.513%Completed 46.154%Completed 46.795%Completed 47.436%Completed 48.077%Completed 48.718%Completed 49.359%Completed 50.000%Completed 50.641%Completed 51.282%Completed 51.923%Completed 52.564%Completed 53.205%Completed 53.846%Completed 54.487%Completed 55.128%Completed 55.769%Completed 56.410%Completed 57.051%Completed 57.692%Completed 58.333%Completed 58.974%Completed 59.615%Completed 60.256%Completed 60.897%Completed 61.538%Completed 62.179%Completed 62.821%Completed 63.462%Completed 64.103%Completed 64.744%Completed 65.385%Completed 66.026%Completed 66.667%Completed 67.308%Completed 67.949%Completed 68.590%Completed 69.231%Completed 69.872%Completed 70.513%Completed 71.154%Completed 71.795%Completed 72.436%Completed 73.077%Completed 73.718%Completed 74.359%Completed 75.000%Completed 75.641%Completed 76.282%Completed 76.923%Completed 77.564%Completed 78.205%Completed 78.846%Completed 79.487%Completed 80.128%Completed 80.769%Completed 81.410%Completed 82.051%Completed 82.692%Completed 83.333%Completed 83.974%Completed 84.615%Completed 85.256%Completed 85.897%Completed 86.538%Completed 87.179%Completed 87.821%Completed 88.462%Completed 89.103%Completed 89.744%Completed 90.385%Completed 91.026%Completed 91.667%Completed 92.308%Completed 92.949%Completed 93.590%Completed 94.231%Completed 94.872%Completed 95.513%Completed 96.154%Completed 96.795%Completed 97.436%Completed 98.077%Completed 98.718%Completed 99.359%Completed 100.000%*****************************
+Computing completed, writing to file
+*****************************
+	Command being timed: "python /scratch/mbr5797/fmh_cosine_reproducibles/fig_2/run_using_mash/wrapper.py filelist_200 new_output_mash_200 --kmer_size 21 --sketch_size 10000 --num_cores 128 --skip_sketch"
+	User time (seconds): 20.68
+	System time (seconds): 7.72
+	Percent of CPU this job got: 1099%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:02.58
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 190564
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1510286
+	Voluntary context switches: 230275
+	Involuntary context switches: 101
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 3312
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

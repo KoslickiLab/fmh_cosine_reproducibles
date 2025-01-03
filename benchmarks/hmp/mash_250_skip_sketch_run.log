@@ -1,0 +1,29 @@
+*****************************
+Hashes read, computing pairwise cosines
+*****************************
+Completed 0.410%Completed 0.820%Completed 1.230%Completed 1.639%Completed 2.049%Completed 2.459%Completed 2.869%Completed 3.279%Completed 3.689%Completed 4.098%Completed 4.508%Completed 4.918%Completed 5.328%Completed 5.738%Completed 6.148%Completed 6.557%Completed 6.967%Completed 7.377%Completed 7.787%Completed 8.197%Completed 8.607%Completed 9.016%Completed 9.426%Completed 9.836%Completed 10.246%Completed 10.656%Completed 11.066%Completed 11.475%Completed 11.885%Completed 12.295%Completed 12.705%Completed 13.115%Completed 13.525%Completed 13.934%Completed 14.344%Completed 14.754%Completed 15.164%Completed 15.574%Completed 15.984%Completed 16.393%Completed 16.803%Completed 17.213%Completed 17.623%Completed 18.033%Completed 18.443%Completed 18.852%Completed 19.262%Completed 19.672%Completed 20.082%Completed 20.492%Completed 20.902%Completed 21.311%Completed 21.721%Completed 22.131%Completed 22.541%Completed 22.951%Completed 23.361%Completed 23.770%Completed 24.180%Completed 24.590%Completed 25.000%Completed 25.410%Completed 25.820%Completed 26.230%Completed 26.639%Completed 27.049%Completed 27.459%Completed 27.869%Completed 28.279%Completed 28.689%Completed 29.098%Completed 29.508%Completed 29.918%Completed 30.328%Completed 30.738%Completed 31.148%Completed 31.557%Completed 31.967%Completed 32.377%Completed 32.787%Completed 33.197%Completed 33.607%Completed 34.016%Completed 34.426%Completed 34.836%Completed 35.246%Completed 35.656%Completed 36.066%Completed 36.475%Completed 36.885%Completed 37.295%Completed 37.705%Completed 38.115%Completed 38.525%Completed 38.934%Completed 39.344%Completed 39.754%Completed 40.164%Completed 40.574%Completed 40.984%Completed 41.393%Completed 41.803%Completed 42.213%Completed 42.623%Completed 43.033%Completed 43.443%Completed 43.852%Completed 44.262%Completed 44.672%Completed 45.082%Completed 45.492%Completed 45.902%Completed 46.311%Completed 46.721%Completed 47.131%Completed 47.541%Completed 47.951%Completed 48.361%Completed 48.770%Completed 49.180%Completed 49.590%Completed 50.000%Completed 50.410%Completed 50.820%Completed 51.230%Completed 51.639%Completed 52.049%Completed 52.459%Completed 52.869%Completed 53.279%Completed 53.689%Completed 54.098%Completed 54.508%Completed 54.918%Completed 55.328%Completed 55.738%Completed 56.148%Completed 56.557%Completed 56.967%Completed 57.377%Completed 57.787%Completed 58.197%Completed 58.607%Completed 59.016%Completed 59.426%Completed 59.836%Completed 60.246%Completed 60.656%Completed 61.066%Completed 61.475%Completed 61.885%Completed 62.295%Completed 62.705%Completed 63.115%Completed 63.525%Completed 63.934%Completed 64.344%Completed 64.754%Completed 65.164%Completed 65.574%Completed 65.984%Completed 66.393%Completed 66.803%Completed 67.213%Completed 67.623%Completed 68.033%Completed 68.443%Completed 68.852%Completed 69.262%Completed 69.672%Completed 70.082%Completed 70.492%Completed 70.902%Completed 71.311%Completed 71.721%Completed 72.131%Completed 72.541%Completed 72.951%Completed 73.361%Completed 73.770%Completed 74.180%Completed 74.590%Completed 75.000%Completed 75.410%Completed 75.820%Completed 76.230%Completed 76.639%Completed 77.049%Completed 77.459%Completed 77.869%Completed 78.279%Completed 78.689%Completed 79.098%Completed 79.508%Completed 79.918%Completed 80.328%Completed 80.738%Completed 81.148%Completed 81.557%Completed 81.967%Completed 82.377%Completed 82.787%Completed 83.197%Completed 83.607%Completed 84.016%Completed 84.426%Completed 84.836%Completed 85.246%Completed 85.656%Completed 86.066%Completed 86.475%Completed 86.885%Completed 87.295%Completed 87.705%Completed 88.115%Completed 88.525%Completed 88.934%Completed 89.344%Completed 89.754%Completed 90.164%Completed 90.574%Completed 90.984%Completed 91.393%Completed 91.803%Completed 92.213%Completed 92.623%Completed 93.033%Completed 93.443%Completed 93.852%Completed 94.262%Completed 94.672%Completed 95.082%Completed 95.492%Completed 95.902%Completed 96.311%Completed 96.721%Completed 97.131%Completed 97.541%Completed 97.951%Completed 98.361%Completed 98.770%Completed 99.180%Completed 99.590%Completed 100.000%*****************************
+Computing completed, writing to file
+*****************************
+	Command being timed: "python /scratch/mbr5797/fmh_cosine_reproducibles/fig_2/run_using_mash/wrapper.py filelist_250 new_output_mash_250 --kmer_size 21 --sketch_size 10000 --num_cores 128 --skip_sketch"
+	User time (seconds): 34.94
+	System time (seconds): 11.30
+	Percent of CPU this job got: 1233%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:03.75
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 190576
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1931933
+	Voluntary context switches: 352892
+	Involuntary context switches: 131
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 5176
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

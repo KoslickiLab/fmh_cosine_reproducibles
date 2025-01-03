@@ -1,0 +1,27 @@
+Computing pairwise metrics
+2.857% completed..5.714% completed..8.571% completed..11.429% completed..14.286% completed..17.143% completed..20.000% completed..22.857% completed..25.714% completed..28.571% completed..31.429% completed..34.286% completed..37.143% completed..40.000% completed..42.857% completed..45.714% completed..48.571% completed..51.429% completed..54.286% completed..57.143% completed..60.000% completed..62.857% completed..65.714% completed..68.571% completed..71.429% completed..74.286% completed..77.143% completed..80.000% completed..82.857% completed..85.714% completed..88.571% completed..91.429% completed..94.286% completed..97.143% completed..100.000% completed..Done computing pairwise metrics, now writing to file
+Done
+Time taken only for similarity calculation: 30.394197940826416
+	Command being timed: "python /scratch/mbr5797/fmh_cosine_reproducibles/fig_2/run_using_fmh/run_by_fmh_wrapper.py -i filelist_100 -k 21 -s 1000 -m cosine -c 128 -o new_run_results_fmh_100_skip_sketch -p -C 2 -P 64 -skip_sketch"
+	User time (seconds): 736.01
+	System time (seconds): 401.49
+	Percent of CPU this job got: 3228%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:35.22
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 4577572
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 1
+	Minor (reclaiming a frame) page faults: 75030395
+	Voluntary context switches: 200017
+	Involuntary context switches: 1823
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 896
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

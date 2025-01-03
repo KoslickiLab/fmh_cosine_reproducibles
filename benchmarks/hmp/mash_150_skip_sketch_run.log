@@ -1,0 +1,29 @@
+*****************************
+Hashes read, computing pairwise cosines
+*****************************
+Completed 1.124%Completed 2.247%Completed 3.371%Completed 4.494%Completed 5.618%Completed 6.742%Completed 7.865%Completed 8.989%Completed 10.112%Completed 11.236%Completed 12.360%Completed 13.483%Completed 14.607%Completed 15.730%Completed 16.854%Completed 17.978%Completed 19.101%Completed 20.225%Completed 21.348%Completed 22.472%Completed 23.596%Completed 24.719%Completed 25.843%Completed 26.966%Completed 28.090%Completed 29.213%Completed 30.337%Completed 31.461%Completed 32.584%Completed 33.708%Completed 34.831%Completed 35.955%Completed 37.079%Completed 38.202%Completed 39.326%Completed 40.449%Completed 41.573%Completed 42.697%Completed 43.820%Completed 44.944%Completed 46.067%Completed 47.191%Completed 48.315%Completed 49.438%Completed 50.562%Completed 51.685%Completed 52.809%Completed 53.933%Completed 55.056%Completed 56.180%Completed 57.303%Completed 58.427%Completed 59.551%Completed 60.674%Completed 61.798%Completed 62.921%Completed 64.045%Completed 65.169%Completed 66.292%Completed 67.416%Completed 68.539%Completed 69.663%Completed 70.787%Completed 71.910%Completed 73.034%Completed 74.157%Completed 75.281%Completed 76.404%Completed 77.528%Completed 78.652%Completed 79.775%Completed 80.899%Completed 82.022%Completed 83.146%Completed 84.270%Completed 85.393%Completed 86.517%Completed 87.640%Completed 88.764%Completed 89.888%Completed 91.011%Completed 92.135%Completed 93.258%Completed 94.382%Completed 95.506%Completed 96.629%Completed 97.753%Completed 98.876%Completed 100.000%*****************************
+Computing completed, writing to file
+*****************************
+	Command being timed: "python /scratch/mbr5797/fmh_cosine_reproducibles/fig_2/run_using_mash/wrapper.py filelist_150 new_output_mash_150 --kmer_size 21 --sketch_size 10000 --num_cores 128 --skip_sketch"
+	User time (seconds): 10.44
+	System time (seconds): 5.30
+	Percent of CPU this job got: 956%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.64
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 190412
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1049084
+	Voluntary context switches: 135070
+	Involuntary context switches: 55
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 1896
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
