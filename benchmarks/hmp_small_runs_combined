@@ -1,9 +1,9 @@
 num_files,method,walltime
-125,mash,
+125,mash,394.12
 100,mash,375.58
-75,mash,
-50,mash,
-25,mash,
+75,mash,375.55
+50,mash,371.57
+25,mash,366.62
 125,frackmc,618.26
 100,frackmc,554.2
 75,frackmc,528.54
