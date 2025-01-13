@@ -1,0 +1,16 @@
+num_files,method,walltime
+125,mash,
+100,mash,375.58
+75,mash,
+50,mash,
+25,mash,
+125,frackmc,618.26
+100,frackmc,554.2
+75,frackmc,528.54
+50,frackmc,406.08
+25,frackmc,393.33
+125,simka,0
+100,simka,1188.72
+75,simka,993.38
+50,simka,741.22
+25,simka,478.671
