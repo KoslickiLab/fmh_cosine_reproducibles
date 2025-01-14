@@ -261,6 +261,7 @@ def compute_metric_for_a_pair(sig1, sig2, metric, return_list, index):
         # compute the cosine similarity
         return_value =  dot_product / (magnitude1 * magnitude2)
         return_list[index] = return_value
+        print(dot_product, magnitude1, magnitude2, return_value)
     elif metric == 'braycurtis':
         # if either of the signatures is empty, return 0.0
         if len(sig1) == 0 or len(sig2) == 0:
