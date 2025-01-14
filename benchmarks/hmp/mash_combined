@@ -1,4 +1,4 @@
-file1,file2,cosine_similarity,bray_curtis
+file1,file2,cosine,braycurtis
 wgs/f1025_ihmp_IBD_ESM5MEE6_P.fastq.gz,wgs/f1042_ihmp_IBD_CSM5MCVZ_P.fastq.gz,0.0795,0.9205
 wgs/f1025_ihmp_IBD_ESM5MEE6_P.fastq.gz,wgs/f1019_ihmp_IBD_CSM5FZ3R_P.fastq.gz,0.1203,0.8797
 wgs/f1025_ihmp_IBD_ESM5MEE6_P.fastq.gz,wgs/f1517_ihmp_IBD_HSM5MD87_P.fastq.gz,0.1671,0.8329

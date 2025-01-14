@@ -1,4 +1,4 @@
-file1,file2,cosine_similarity,bray_curtis
+file1,file2,cosine,braycurtis
 coli3682_dataset/GCA_000447085.2_ASM44708v2.fna,coli3682_dataset/GCA_001059035.1_ASM105903v1.fna,0.5449,0.4551
 coli3682_dataset/GCA_000447085.2_ASM44708v2.fna,coli3682_dataset/GCA_000459275.1_Esch_coli_HVH_211_4-3041891_V1.fna,0.4959,0.5041
 coli3682_dataset/GCA_000447085.2_ASM44708v2.fna,coli3682_dataset/GCA_000302715.1_ASM30271v1.fna,0.6041,0.3959
