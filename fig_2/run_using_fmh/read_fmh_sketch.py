@@ -66,7 +66,7 @@ def read_fmh_sig_file(file, ksize, seed, scaled):
         if sig['ksize'] == ksize and sig['seed'] == seed and sig['max_hash'] == target_max_hash:
             # if "abundances" is present, extract the abundances
             if 'abundances' in sig:
-                return list(zip(sig['mins'], sig['abundances']))
+                return list(zip(sig['mins'], [1.0] * len(sig['mins'])))
             else:
                 return list(zip(sig['mins'], [1.0] * len(sig['mins'])))
         
