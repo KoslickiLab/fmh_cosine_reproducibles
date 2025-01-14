@@ -258,6 +258,9 @@ def compute_metric_for_a_pair(sig1, sig2, metric, return_list, index):
         magnitude1 = compute_magnitute(sig1)
         magnitude2 = compute_magnitute(sig2)
         
+        print(f'Magnitude1: {magnitude1}, Magnitude2: {magnitude2}')
+        print(f'Dot product: {dot_product}')
+        
         # compute the cosine similarity
         return_value =  dot_product / (magnitude1 * magnitude2)
         return_list[index] = return_value
