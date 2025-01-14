@@ -261,7 +261,7 @@ def compute_metric_for_a_pair(sig1, sig2, metric, return_list, index):
         # compute the cosine similarity
         return_value =  dot_product / (magnitude1 * magnitude2)
         return_list[index] = return_value
-        print(dot_product, magnitude1, magnitude2, return_value)
+        #print(dot_product, magnitude1, magnitude2, return_value)
     elif metric == 'braycurtis':
         # if either of the signatures is empty, return 0.0
         if len(sig1) == 0 or len(sig2) == 0:
@@ -279,9 +279,9 @@ def compute_metric_for_a_pair(sig1, sig2, metric, return_list, index):
         return_list[index] = -1
 
 
-def compute_metric_for_range_of_pairs(i_j_pairs_to_work_on, all_sketches, start_index, end_index, return_list, metric, show_progress):
+def compute_metric_for_range_of_pairs(all_i_j_pairs, all_sketches, start_index, end_index, return_list, metric, show_progress):
     for index in range(start_index, end_index):
-        i, j = i_j_pairs_to_work_on[index-start_index]
+        i, j = all_i_j_pairs[index]
         sigs_and_abundances1 = all_sketches[i]
         sigs_and_abundances2 = all_sketches[j]
 
