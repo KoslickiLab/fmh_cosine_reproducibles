@@ -1,0 +1,27 @@
+Computing pairwise metrics
+1.124% completed..2.247% completed..3.371% completed..4.494% completed..5.618% completed..6.742% completed..7.865% completed..8.989% completed..10.112% completed..11.236% completed..12.360% completed..13.483% completed..14.607% completed..15.730% completed..16.854% completed..17.978% completed..19.101% completed..20.225% completed..21.348% completed..22.472% completed..23.596% completed..24.719% completed..25.843% completed..26.966% completed..28.090% completed..29.213% completed..30.337% completed..31.461% completed..32.584% completed..33.708% completed..34.831% completed..35.955% completed..37.079% completed..38.202% completed..39.326% completed..40.449% completed..41.573% completed..42.697% completed..43.820% completed..44.944% completed..46.067% completed..47.191% completed..48.315% completed..49.438% completed..50.562% completed..51.685% completed..52.809% completed..53.933% completed..55.056% completed..56.180% completed..57.303% completed..58.427% completed..59.551% completed..60.674% completed..61.798% completed..62.921% completed..64.045% completed..65.169% completed..66.292% completed..67.416% completed..68.539% completed..69.663% completed..70.787% completed..71.910% completed..73.034% completed..74.157% completed..75.281% completed..76.404% completed..77.528% completed..78.652% completed..79.775% completed..80.899% completed..82.022% completed..83.146% completed..84.270% completed..85.393% completed..86.517% completed..87.640% completed..88.764% completed..89.888% completed..91.011% completed..92.135% completed..93.258% completed..94.382% completed..95.506% completed..96.629% completed..97.753% completed..98.876% completed..100.000% completed..Done computing pairwise metrics, now writing to file
+Done
+Time taken only for similarity calculation: 63.423774003982544
+	Command being timed: "python /scratch/mbr5797/fmh_cosine_reproducibles/fig_2/run_using_fmh/run_by_fmh_wrapper.py -i filelist_150 -k 21 -s 1000 -m cosine -c 128 -o new_run_results_fmh_150_skip_sketch -p -C 1 -P 128 -skip_sketch"
+	User time (seconds): 2142.33
+	System time (seconds): 1283.95
+	Percent of CPU this job got: 4810%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:11.22
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 7086848
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 4
+	Minor (reclaiming a frame) page faults: 172124158
+	Voluntary context switches: 343078
+	Involuntary context switches: 5516
+	Swaps: 0
+	File system inputs: 192984
+	File system outputs: 2208
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
