@@ -18,7 +18,8 @@ if __name__ == "__main__":
 
     num_genomes_in_files = [100, 150, 200, 250, 300]
     for num_genomes in num_genomes_in_files:
-        log_filename_complete_run = f"{directory_where_benchmark_files}/{method_name}_complete_run_{num_genomes}.log"
+        log_filename_complete_run = f"{directory_where_benchmark_files}/{method_name}_{num_genomes}_complete_run.log"
+        print (log_filename_complete_run)
         complete_run_cputime, complete_run_walltime, complete_run_mem = get_metrics(log_filename_complete_run)
         
         sketch_only_filename = f"{directory_where_benchmark_files}/{method_name}_skip_similarity_run_{num_genomes}.log"
